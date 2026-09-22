@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ARTICLE_TITLE}} | [SITE_NAME]</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<link rel="canonical" href="https://[YOUR_DOMAIN]/{{SLUG}}/">
+<!-- Open Graph -->
+<meta property="og:title" content="{{ARTICLE_TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:type" content="article">
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.6;color:#222}
+  h1{font-size:1.8rem}
+  h2{font-size:1.3rem;margin-top:2rem}
+  .disclosure{background:#f5f5f0;border-left:4px solid #999;padding:12px 16px;font-size:.9rem;margin:1.5rem 0}
+  .product-card{border:1px solid #ddd;border-radius:8px;padding:16px;margin:1.5rem 0}
+  .cta{display:inline-block;background:#ff9900;color:#111;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;margin-top:8px}
+  .faq h3{font-size:1.05rem;margin-bottom:.2rem}
+</style>
+<!-- Schema.org Article + FAQPage vai no rodapé, preenchido no build -->
+</head>
+<body>
+
+<article>
+  <h1>{{ARTICLE_TITLE}}</h1>
+  <p><em>Updated {{DATE}}</em></p>
+
+  <div class="disclosure">
+    As an Amazon Associate, [SITE_NAME] earns from qualifying purchases. We may earn a commission if you buy something through links on this page, at no extra cost to you.
+  </div>
+
+  {{INTRO_PARAGRAPH}}
+
+  <!-- Quick answer table (aumenta CTR e serve pra featured snippet) -->
+  {{QUICK_ANSWER_TABLE}}
+
+  <h2>How we picked these</h2>
+  {{SELECTION_CRITERIA}}
+
+  <!-- Repetir este bloco para cada produto do roundup -->
+  <div class="product-card">
+    <h2>{{PRODUCT_N_HEADLINE}}</h2>
+    <p><strong>Best for:</strong> {{PRODUCT_N_USE_CASE}}</p>
+    <p>{{PRODUCT_N_DESCRIPTION}}</p>
+    <a class="cta" href="{{AFFILIATE_LINK_N}}" rel="nofollow sponsored" target="_blank">Check price on Amazon</a>
+  </div>
+
+  <h2>Buying guide: what to look for</h2>
+  {{BUYING_GUIDE_BODY}}
+
+  <h2 class="faq">FAQ</h2>
+  {{FAQ_BLOCK}}
+
+</article>
+
+<footer>
+  <p style="font-size:.85rem;color:#777">© {{YEAR}} [SITE_NAME]. This site participates in the Amazon Services LLC Associates Program.</p>
+</footer>
+
+</body>
+</html>
