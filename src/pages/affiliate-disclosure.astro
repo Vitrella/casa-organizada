@@ -1,0 +1,17 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE } from '../site.config.mjs';
+---
+<Page title={`Affiliate Disclosure | ${SITE.name}`} heading="Affiliate disclosure" path="/affiliate-disclosure/"
+  description={`How ${SITE.name} earns money: we're an Amazon Associate and may earn from qualifying purchases, at no extra cost to you and without affecting our picks.`}>
+  <p class="box">{SITE.disclosure}</p>
+  <p>{SITE.name} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
+  <p>In plain English: some links on this site go to Amazon. If you click one and buy something, Amazon may pay us a small commission. The price you pay is exactly the same.</p>
+  <h2>What this means for our recommendations</h2>
+  <ul>
+    <li>Brands and sellers cannot pay to be included in a guide or to rank higher.</li>
+    <li>We don't receive free products in exchange for coverage.</li>
+    <li>Product links are marked with <code>rel="sponsored"</code>, and every guide shows this disclosure near the top of the page — before any product link.</li>
+  </ul>
+  <p>This disclosure is provided in accordance with the U.S. Federal Trade Commission's guidance on endorsements and testimonials in advertising (16 CFR Part 255).</p>
+</Page>

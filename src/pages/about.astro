@@ -1,0 +1,32 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE } from '../site.config.mjs';
+---
+<Page title={`About ${SITE.name} — Who Runs This Site`} heading={`About ${SITE.name}`} path="/about/"
+  description={`${SITE.name} is run by ${SITE.author.name}. Here's who we are, how we choose the organizers we recommend and how the site makes money.`}>
+  <p>Hi — I'm <strong>{SITE.author.shortName}</strong> ({SITE.author.name}), and I run {SITE.name}.</p>
+  <p>I started this site for a simple reason: searching Amazon for "the best drawer organizer" or "a closet system for a tiny bedroom" returns hundreds of near-identical listings, and it takes hours to figure out which ones are actually good and which one fits <em>your</em> space. {SITE.name} does that homework for you.</p>
+
+  <h2>What you'll find here</h2>
+  <p>Practical buying guides for organizing every room — kitchen and pantry, closets and bedrooms, bathrooms, garages, home offices and kids' rooms. Each guide compares a short list of real products, explains who each one is best for, and gives you a plain buying guide so you know what to measure and check before you order.</p>
+
+  <h2>How I research each guide</h2>
+  <ul>
+    <li>Every product is a real, current Amazon.com listing that I've checked — no invented products, prices or statistics.</li>
+    <li>I compare price, star rating, number of ratings and what each product is designed for, then match it to a specific situation (renters, small spaces, deep drawers, tight budgets).</li>
+    <li>Prices and ratings change, so every guide shows the date it was last updated. When I re-check a guide, the date changes.</li>
+    <li>I'm upfront about limits: unless a guide says otherwise, picks are based on listing research and review data, not long-term hands-on testing.</li>
+  </ul>
+  <p>More detail is on the <a href="/how-we-pick/">How we pick</a> page.</p>
+
+  <h2>How this site makes money</h2>
+  <p>{SITE.name} is reader-supported. When you buy through a link on this site, I may earn a small commission from Amazon at no extra cost to you. Brands can't pay to be included or to rank higher. Read the full <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+
+  <h2>Contact</h2>
+  {SITE.contactEmail ? (
+    <p>Questions, corrections or suggestions for a guide? Email <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.</p>
+  ) : (
+    <p>Questions, corrections or suggestions for a guide are always welcome.</p>
+  )}
+  <p class="box">{SITE.name} is operated by {SITE.address}.</p>
+</Page>

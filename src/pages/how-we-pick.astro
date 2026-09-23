@@ -1,0 +1,22 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE } from '../site.config.mjs';
+---
+<Page title={`How We Pick Products | ${SITE.name}`} heading="How we pick products" path="/how-we-pick/"
+  description="Our methodology: we compare real Amazon listings by price, rating, review volume and use case, show the date we checked, and never accept paid placements.">
+  <p class="box">{SITE.methodology}</p>
+  <h2>1. We start from a real question</h2>
+  <p>Every guide answers something people actually search for — "best kitchen drawer organizers", "closet systems for small bedrooms". That decides who the guide is for before any product is considered.</p>
+  <h2>2. We only list real, current products</h2>
+  <p>Each pick is a live Amazon.com listing identified by its ASIN. We never publish placeholder products, invented specs or made-up statistics. If we can't verify a product, it doesn't go in the guide.</p>
+  <h2>3. We compare what matters</h2>
+  <ul>
+    <li><strong>Price</strong> — the listed price on the day we checked, shown on every guide.</li>
+    <li><strong>Rating and review volume</strong> — a 4.7 with 40,000 ratings tells you more than a 4.9 with 12. We show both.</li>
+    <li><strong>Use case</strong> — renter-friendly or drilled, expandable or fixed, airtight or open. Every pick gets a clear "best for".</li>
+  </ul>
+  <h2>4. We keep guides current</h2>
+  <p>Prices and ratings move. Every guide shows its "last updated" date, and we re-check listings when we update it. Always confirm the current price on Amazon before buying.</p>
+  <h2>5. Money never changes the ranking</h2>
+  <p>We earn a commission from qualifying Amazon purchases, but brands can't pay for inclusion or position. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+</Page>

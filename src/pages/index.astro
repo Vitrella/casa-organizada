@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE, CATEGORIES } from '../site.config.mjs';
+import { getLiveArticles, categoryFor, categoryUrl, absoluteUrl } from '../lib/articles';
+import { illustrationFor } from '../lib/illustrations.mjs';
+
+const live = await getLiveArticles();
+const [featured, ...rest] = live;
+const counts = new Map<string, number>();
+live.forEach((a) => counts.set(categoryFor(a).id, (counts.get(categoryFor(a).id) ?? 0) + 1));
+const cats = CATEGORIES.filter((c) => counts.has(c.id));
+const totalPicks = live.reduce((n, a) => n + a.data.products.length, 0);
+
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url, description: SITE.description },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: absoluteUrl('/logo.png'), founder: { '@type': 'Person', name: SITE.author.name } },
+];
+---
+<Base title={`${SITE.name} — Practical Home Organization Picks`} description={SITE.description} path="/" jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Home organization, minus the guesswork</p>
+        <h1>Find the right organizer for your space — in minutes.</h1>
+        <p class="lead">We compare real Amazon listings by price, rating and use case, and tell you plainly which one fits your kitchen, closet, garage or bathroom.</p>
+        <div class="hero-cta">
+          <a class="btn btn-cta" href="#latest">Browse the guides</a>
+          <a class="btn btn-ghost" href="/how-we-pick/">How we pick</a>
+        </div>
+        <ul class="trust" aria-label="Why readers trust us">
+          <li><b>{live.length}</b> buying guides</li>
+          <li><b>{totalPicks}</b> products compared</li>
+          <li><b>0</b> sponsored placements</li>
+        </ul>
+      </div>
+      <div class="hero-art" set:html={illustrationFor('closet')} />
+    </div>
+  </section>
+
+  <section class="wrap rooms" aria-labelledby="rooms-h">
+    <h2 id="rooms-h">Shop by room</h2>
+    <ul class="room-grid">
+      {cats.map((c) => (
+        <li>
+          <a class="room" href={categoryUrl(c.id)}>
+            <span class="room-art" set:html={illustrationFor(c.id)} />
+            <span class="room-txt"><b>{c.name}</b><small>{counts.get(c.id)} {counts.get(c.id) === 1 ? 'guide' : 'guides'}</small></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="latest" class="wrap latest" aria-labelledby="latest-h">
+    <h2 id="latest-h">Latest buying guides</h2>
+    {featured && (
+      <div class="featured"><PostCard article={featured} /></div>
+    )}
+    <div class="card-grid cols-3">{rest.map((a) => <PostCard article={a} />)}</div>
+  </section>
+
+  <section class="wrap how" aria-labelledby="how-h">
+    <div class="how-box">
+      <h2 id="how-h">How we pick products</h2>
+      <ol>
+        <li><b>Real listings only.</b> Every pick is a real product on Amazon.com — never a placeholder or a made-up spec.</li>
+        <li><b>Use case first.</b> We match each product to the situation it's best for: small closets, renters, deep drawers, tight budgets.</li>
+        <li><b>Numbers you can check.</b> Price, star rating and review volume are shown with the date we checked them.</li>
+        <li><b>No paid placements.</b> Brands can't buy a spot. We earn a small commission only if you buy — it never changes the ranking.</li>
+      </ol>
+      <a href="/how-we-pick/">Read our full methodology →</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { background: linear-gradient(180deg, var(--sand) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; gap: 28px; padding-top: 36px; padding-bottom: 40px; align-items: center; }
+  .eyebrow { margin: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-deep); }
+  .hero h1 { margin: 10px 0 14px; font-size: clamp(2rem, 7vw, 3.2rem); line-height: 1.1; }
+  .lead { font-size: 1.12rem; color: var(--ink-2); max-width: 52ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 22px; }
+  .trust { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.95rem; color: var(--muted); }
+  .trust b { color: var(--ink); font-size: 1.1rem; }
+  .hero-art { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 5 / 3; background: var(--sand); }
+  .hero-art :global(svg) { width: 100%; height: 100%; }
+  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.1fr 1fr; padding-top: 56px; padding-bottom: 64px; } }
+
+  .rooms h2, .latest h2 { margin-top: 48px; }
+  .room-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 760px) { .room-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); } }
+  .room { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: var(--ink); height: 100%; transition: border-color 0.15s ease; }
+  .room:hover { border-color: var(--sage); color: var(--ink); }
+  .room-art { aspect-ratio: 5 / 3; background: var(--sand); }
+  .room-art :global(svg) { width: 100%; height: 100%; }
+  .room-txt { padding: 10px 14px 12px; display: flex; flex-direction: column; line-height: 1.3; }
+  .room-txt small { color: var(--muted); font-size: 0.85rem; }
+
+  .featured { margin-bottom: 18px; }
+  @media (min-width: 760px) {
+    .featured :global(.post-card) { flex-direction: row; }
+    .featured :global(.post-card .art) { flex: 0 0 48%; aspect-ratio: auto; min-height: 260px; }
+    .featured :global(.post-card .body) { padding: 26px 28px; justify-content: center; }
+    .featured :global(.post-card h3) { font-size: 1.6rem; }
+    .featured :global(.post-card .meta) { margin-top: 8px; }
+  }
+
+  .how-box { margin-top: 56px; padding: 26px 22px; background: var(--sage-deep); color: #eef3ee; border-radius: 20px; }
+  .how-box h2 { color: #fff; margin: 0 0 14px; }
+  .how-box ol { margin: 0 0 16px; padding-left: 1.2em; display: grid; gap: 10px; }
+  .how-box b { color: #fff; }
+  .how-box a { color: #fff; font-weight: 700; }
+  @media (min-width: 760px) { .how-box { padding: 38px 44px; } .how-box ol { grid-template-columns: 1fr 1fr; gap: 14px 40px; } }
+</style>

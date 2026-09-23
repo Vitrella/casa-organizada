@@ -1,0 +1,7 @@
+import type { APIRoute } from 'astro';
+import { SITE } from '../site.config.mjs';
+// Generated so the sitemap URL follows SITE.url automatically when a custom domain is set.
+export const GET: APIRoute = () =>
+  new Response(`User-agent: *\nAllow: /\n\nSitemap: ${new URL('/sitemap.xml', SITE.url).href}\n`, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
