@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Tidy Home Picks',
   // Change this ONE line when a custom domain (.com) is connected.
   // Canonical tags, sitemap, Open Graph and JSON-LD all read from it.
-  url: 'https://casa-organizada-5ub.pages.dev',
+  url: 'https://tidy-home-picks.pages.dev',
   tagline: 'Practical storage picks for real homes',
   description:
     'Practical, honest picks for organizing every room — kitchen, closet, garage, bathroom and more. We compare real Amazon listings by price, rating and use case.',
