@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casa-organizada-5ub.pages.dev/sitemap.xml
