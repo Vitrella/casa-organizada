@@ -1,0 +1,34 @@
+---
+import Logo from './Logo.astro';
+import { SITE, CATEGORIES } from '../site.config.mjs';
+import { getLiveArticles, categoryFor } from '../lib/articles';
+const live = await getLiveArticles();
+const used = new Set(live.map((a) => categoryFor(a).id));
+const year = new Date().getUTCFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/"><Logo />{SITE.name}</a>
+      <p style="margin-top:12px;max-width:40ch">{SITE.tagline}. Honest, practical comparisons of real products — so you can organize your home without the guesswork.</p>
+    </div>
+    <nav aria-label="Categories">
+      <h2>Rooms</h2>
+      <ul>{CATEGORIES.filter((c) => used.has(c.id)).map((c) => <li><a href={`/category/${c.id}/`}>{c.name}</a></li>)}</ul>
+    </nav>
+    <nav aria-label="Site">
+      <h2>{SITE.name}</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-pick/">How we pick products</a></li>
+        <li><a href="/affiliate-disclosure/">Affiliate disclosure</a></li>
+        <li><a href="/privacy-policy/">Privacy policy</a></li>
+      </ul>
+    </nav>
+    <div class="legal">
+      <p>As an Amazon Associate, {SITE.name} earns from qualifying purchases. {SITE.name} participates in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
+      <p>Prices and ratings are accurate as of the date shown on each guide and may change.</p>
+      <p>© {year} {SITE.name} · {SITE.address}</p>
+    </div>
+  </div>
+</footer>

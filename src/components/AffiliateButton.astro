@@ -1,0 +1,25 @@
+---
+import { affiliateUrl, type Product } from '../lib/articles';
+interface Props { product: Product; articleSlug: string; position: number; placement: string; label?: string; size?: 'sm' | 'md'; block?: boolean }
+const { product, articleSlug, position, placement, label = 'Check Price on Amazon', size = 'md', block = false } = Astro.props;
+const href = affiliateUrl(product);
+---
+{href ? (
+  <a
+    class:list={['btn', 'btn-cta', { 'btn-sm': size === 'sm', 'btn-block': block }]}
+    href={href}
+    rel="nofollow sponsored noopener"
+    target="_blank"
+    data-affiliate
+    data-asin={product.asin ?? ''}
+    data-article={articleSlug}
+    data-position={position}
+    data-placement={placement}
+  >
+    {label}
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="sr-only">(opens Amazon in a new tab)</span>
+  </a>
+) : (
+  <span class="btn btn-ghost btn-sm" aria-disabled="true">Link coming soon</span>
+)}

@@ -1,0 +1,27 @@
+---
+import Logo from './Logo.astro';
+import { SITE, CATEGORIES } from '../site.config.mjs';
+import { getLiveArticles, categoryFor } from '../lib/articles';
+const live = await getLiveArticles();
+const used = new Set(live.map((a) => categoryFor(a).id));
+const cats = CATEGORIES.filter((c) => used.has(c.id));
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label={`${SITE.name} — home`}><Logo />{SITE.name}</a>
+    <nav class="nav-desktop" aria-label="Main">
+      {cats.slice(0, 5).map((c) => <a href={`/category/${c.id}/`}>{c.name}</a>)}
+      <a href="/about/">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Menu
+      </summary>
+      <ul>
+        {cats.map((c) => <li><a href={`/category/${c.id}/`}>{c.name}</a></li>)}
+        <li><a href="/about/">{`About ${SITE.name}`}</a></li>
+      </ul>
+    </details>
+  </div>
+</header>

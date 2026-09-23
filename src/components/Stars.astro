@@ -1,0 +1,10 @@
+---
+interface Props { value?: number; count?: string; compact?: boolean }
+const { value, count, compact = false } = Astro.props;
+---
+{value !== undefined && (
+  <span class="stars">
+    <span class="stars-bar" style={`--r:${value}`} aria-hidden="true"><span></span></span>
+    <span><b>{value.toFixed(1)}</b><span class="sr-only"> out of 5 stars</span>{!compact && count && <span> · {count} ratings</span>}</span>
+  </span>
+)}
