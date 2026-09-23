@@ -1,0 +1,89 @@
+{
+  "best-kitchen-drawer-organizers": {
+    "researchedAt": "2026-09-23",
+    "products": [
+      {
+        "name": "Pipishell Bamboo Expandable Silverware Drawer Organizer",
+        "asin": "B07SRV3SN8",
+        "price": "$25.99",
+        "rating": "4.7 out of 5 (42,700+ ratings)",
+        "bestFor": "Most standard kitchen drawers",
+        "note": "Amazon's Overall Pick for this search. Expandable bamboo tray, adjustable slots for forks, spoons and knives."
+      },
+      {
+        "name": "ROYAL CRAFT WOOD Luxury Bamboo Kitchen Drawer Organizer, 9 Slot",
+        "asin": "B07TVDFVV9",
+        "price": "$36.97",
+        "rating": "4.6 out of 5 (36,300+ ratings)",
+        "bestFor": "Large or deep drawers that need more compartments",
+        "note": "Fixed 9-slot bamboo tray, more structured than expandable trays, good for keeping bulkier tools separated."
+      },
+      {
+        "name": "Vtopmart Expandable Silverware Organizer, 6-9 Slots",
+        "asin": "B0GLN5PKLW",
+        "price": "$19.99",
+        "rating": "4.8 out of 5",
+        "bestFor": "Budget-friendly pick",
+        "note": "Adjustable plastic flatware organizer, highest rating of the three, cheapest option."
+      }
+    ]
+  },
+  "best-pantry-storage-containers": {
+    "researchedAt": "2026-09-23",
+    "products": [
+      {
+        "name": "Vtopmart Airtight Food Storage Containers with Lids, 24 pcs",
+        "asin": "B08ZK5WDWN",
+        "price": "$35.99",
+        "rating": "4.7 out of 5 (28,500+ ratings)",
+        "bestFor": "Dry goods that need an airtight seal (flour, sugar, cereal, pasta)",
+        "note": "Amazon's Overall Pick. 24-piece set with labels included, BPA-free, dishwasher safe (containers only, not lids)."
+      },
+      {
+        "name": "Vtopmart 6 Pack Clear Stackable Storage Bins with Lids and Handles, Large",
+        "asin": "B0BC8VSWC7",
+        "price": "$27.89",
+        "rating": "4.6 out of 5 (6,600+ ratings)",
+        "bestFor": "Grouping packaged items (snack bags, canned goods) by category",
+        "note": "Stackable bins with carry handles, not airtight — meant for organizing packaged goods rather than sealing loose dry goods."
+      },
+      {
+        "name": "ClearSpace Stackable Storage Bins, Front Pantry Organizer, Medium, 4 Pack",
+        "asin": "B0GZ5KWZ8L",
+        "price": "$39.99",
+        "rating": "4.7 out of 5 (12 ratings — newer listing)",
+        "bestFor": "Open-front, grab-and-go access without unstacking",
+        "note": "Newer product with a small review count so far; open-front design is the main differentiator from the closed-lid bins above."
+      }
+    ]
+  },
+  "best-closet-organizer-systems-for-small-bedrooms": {
+    "researchedAt": "2026-09-23",
+    "products": [
+      {
+        "name": "HOMIDEC Wardrobe Closet, Portable Clothes Rack with 4 Tier Shelves",
+        "asin": "B0CF5FPJ1T",
+        "price": "$49.99",
+        "rating": "4.6 out of 5 (1,300+ ratings)",
+        "bestFor": "Renters or rooms with no existing closet — needs zero installation",
+        "note": "Amazon's Overall Pick. Freestanding steel rack with hanging rod and shelves, no drilling."
+      },
+      {
+        "name": "NEATERIZE Cube Storage Organizer, 9 Fabric Storage Cubes",
+        "asin": "B0BFG36DXH",
+        "price": "$55.96",
+        "rating": "4.1 out of 5 (2,100+ ratings)",
+        "bestFor": "Flexible, modular storage that can be reconfigured later",
+        "note": "Amazon's Choice. Fabric bins in a cube frame — no hanging space, best combined with a rod-based option for a full closet."
+      },
+      {
+        "name": "ClosetMaid ShelfTrack Wire Closet Organizer System, 4-6 ft",
+        "asin": "B00CBX0SI8",
+        "price": "$110.96",
+        "rating": "4.7 out of 5 (1,100+ ratings)",
+        "bestFor": "Maximum storage capacity in an existing closet opening",
+        "note": "Amazon's Overall Pick. Wall-mounted wire shelving — requires drilling into studs, so it's a poor fit for renters unless removal is allowed."
+      }
+    ]
+  }
+}
