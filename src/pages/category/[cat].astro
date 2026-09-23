@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { CATEGORIES, SITE } from '../../site.config.mjs';
+import { getLiveArticles, categoryFor, categoryUrl, absoluteUrl } from '../../lib/articles';
+
+export async function getStaticPaths() {
+  const live = await getLiveArticles();
+  return CATEGORIES.filter((c) => live.some((a) => categoryFor(a).id === c.id)).map((c) => ({
+    params: { cat: c.id },
+    props: { cat: c, articles: live.filter((a) => categoryFor(a).id === c.id) },
+  }));
+}
+const { cat, articles } = Astro.props;
+const path = categoryUrl(cat.id);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: cat.name, item: absoluteUrl(path) },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${cat.name} organization guides`,
+    url: absoluteUrl(path),
+    hasPart: articles.map((a) => ({ '@type': 'Article', headline: a.data.title, url: absoluteUrl(`/${a.id}/`) })),
+  },
+];
+---
+<Base
+  title={`${cat.name} Organization Guides | ${SITE.name}`}
+  description={`${cat.blurb} Honest buying guides comparing real products by price, rating and use case.`}
+  path={path}
+  ogImage={`/og/${cat.id}.png`}
+  jsonLd={jsonLd}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: cat.name }]} />
+    <header class="cat-head">
+      <h1>{cat.name} organization guides</h1>
+      <p>{cat.blurb}</p>
+    </header>
+    <div class="card-grid cols-3">{articles.map((a) => <PostCard article={a} headingLevel="h2" />)}</div>
+  </div>
+</Base>
+<style>
+  .cat-head { max-width: 60ch; margin-bottom: 26px; }
+  .cat-head p { color: var(--ink-2); font-size: 1.1rem; }
+  .cat-head + .card-grid :global(h2) { font-size: 1.18rem; margin: 0; }
+</style>
