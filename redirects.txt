@@ -1,0 +1,2 @@
+# Optional manual redirects (Cloudflare Pages format), prepended to the generated _redirects.
+# Example: /old-url/ /new-url/ 301
