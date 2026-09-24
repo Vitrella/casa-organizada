@@ -114,5 +114,63 @@
         "note": "Amazon's Overall Pick. Wall-mounted wire shelving — requires drilling into studs, so it's a poor fit for renters unless removal is allowed."
       }
     ]
+  },
+  "best-over-door-organizers-small-closets": {
+    "researchedAt": "2026-09-24",
+    "products": [
+      {
+        "name": "JARLINK Over the Door Organizer for Bedroom, Pantry, Bathroom, 5 Shelf Grey",
+        "asin": "B0C89STMFK",
+        "price": "$19.97",
+        "rating": "4.8 out of 5 (5,194 ratings)",
+        "bestFor": "Best all-around pick — top rated with the most buyers",
+        "note": "Amazon's Overall Pick for this search. Anti-tilt design, 44 lb load capacity, 5 large pockets + 5 mesh side pockets, 6K+ bought in the past month."
+      },
+      {
+        "name": "Simple Houseware 6 Clear Window Pocket Over Door Hanging Organizer, Beige",
+        "asin": "B0857494TK",
+        "price": "$19.97",
+        "rating": "4.7 out of 5 (61,989 ratings)",
+        "bestFor": "Most trusted / most reviewed option by far",
+        "note": "Slim 13-inch width fits narrow doors, clear window pockets so you can see contents at a glance, tool-free two-hook setup."
+      },
+      {
+        "name": "Lifewit 1 Pack Over the Door Organizer 5 Section Hanging Storage, Dark Gray",
+        "asin": "B0D46GXKYF",
+        "price": "$11.99",
+        "rating": "4.5 out of 5 (2,492 ratings)",
+        "bestFor": "Budget-friendly pick",
+        "note": "Anti-tilt design with 40 lb capacity, 5 clear-window pockets plus 4 side pockets, foldable when not in use, 6K+ bought in the past month."
+      }
+    ]
+  },
+  "best-under-sink-organizers-for-bathroom": {
+    "researchedAt": "2026-09-24",
+    "products": [
+      {
+        "name": "Ukeetap 2 Packs Under Sink Pull-Out Storage Organizers, 12.8 Inches, Black",
+        "asin": "B0DNTQ2YNT",
+        "price": "$17.99 ($9.00 / count)",
+        "rating": "4.6 out of 5 (6,520 ratings)",
+        "bestFor": "Best value for a 2-pack with a pull-out drawer",
+        "note": "Amazon's Overall Pick for this search. Bottom pull-out drawer design, no tools needed, 5K+ bought in the past month."
+      },
+      {
+        "name": "Vtopmart 4 Pack Pull Out Bathroom Under Sink Organizer (S-Standard)",
+        "asin": "B0BZNPDHR9",
+        "price": "$30.99 ($7.75 / count)",
+        "rating": "4.6 out of 5 (3,795 ratings)",
+        "bestFor": "Most units for the price — good for splitting across two cabinets",
+        "note": "9K+ bought in the past month. Two-tier stackable clear drawers, no tools needed to assemble."
+      },
+      {
+        "name": "REALINN Under Sink Organizer, L-Shaped 2 Tier Pull Out Cabinet Organizer, White, 2 Pack",
+        "asin": "B0CFQFMC4F",
+        "price": "$43.99",
+        "rating": "4.4 out of 5 (15,823 ratings)",
+        "bestFor": "Most reviewed option — best for cabinets with pipes to work around",
+        "note": "L-shaped design clears plumbing and garbage disposals, all-metal frame holds up to 50 lbs, 6K+ bought in the past month."
+      }
+    ]
   }
 }
