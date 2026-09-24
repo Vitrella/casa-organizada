@@ -20,7 +20,7 @@ const product = z
     name: z.string().min(1),
     shortName: z.string().optional(),
     asin: z.string().optional(),
-    url: z.string().url().optional(), // optional full URL override (non-Amazon or custom link)
+    url: z.string().url().startsWith('https://').optional(), // optional full URL override (non-Amazon or custom link) — https only
     price: z.string().optional(), // "$25.99" — kept as text, exactly as listed
     rating: ratingField, // 4.7 or "4.7 out of 5 (42,700+ ratings)"
     ratingCount: z.string().optional(), // "42,700+" (auto-extracted from rating text if absent)
