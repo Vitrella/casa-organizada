@@ -14,7 +14,7 @@ export const SITE = {
   locale: 'en_US',
 
   // Google Analytics 4 measurement ID, e.g. 'G-ABC123XYZ'. Empty = no analytics loaded.
-  ga4Id: '',
+  ga4Id: 'G-F8MY7BEQTL',
 
   // Google Search Console verification token (only the content="..." value). Empty = no tag.
   googleSiteVerification: 'mw7IutfrHgHp2qvLainK01e6h6_uCPPbxqHbMaz2ffo',
