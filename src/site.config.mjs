@@ -19,6 +19,9 @@ export const SITE = {
   // Google Search Console verification token (only the content="..." value). Empty = no tag.
   googleSiteVerification: 'mw7IutfrHgHp2qvLainK01e6h6_uCPPbxqHbMaz2ffo',
 
+  // Pinterest site-claim verification token (only the content="..." value). Empty = no tag.
+  pinterestSiteVerification: '1492be054f555c0401d03e4132dacd06',
+
   // Amazon Associates tracking ID, e.g. 'casaorganizada-20'.
   // Leave empty until the account is approved: links go to plain amazon.com/dp/ASIN.
   amazonTag: '',
