@@ -75,12 +75,24 @@ if (products.length) {
     name: d.title,
     numberOfItems: products.length,
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
-    itemListElement: products.map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: p.name,
-      url: `${absoluteUrl(path)}#${productAnchor(p, i)}`,
-    })),
+    itemListElement: products.map((p, i) => {
+      const reviewCount = p.ratingCount ? parseInt(String(p.ratingCount).replace(/[^\d]/g, ''), 10) : undefined;
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Product',
+          name: p.name,
+          url: `${absoluteUrl(path)}#${productAnchor(p, i)}`,
+          ...(p.ratingValue !== undefined && reviewCount ? {
+            aggregateRating: { '@type': 'AggregateRating', ratingValue: p.ratingValue, reviewCount },
+          } : {}),
+          ...(p.priceValue !== undefined ? {
+            offers: { '@type': 'Offer', price: p.priceValue, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: affiliateUrl(p) ?? absoluteUrl(path) },
+          } : {}),
+        },
+      };
+    }),
   });
 }
 if (d.faq.length) {
