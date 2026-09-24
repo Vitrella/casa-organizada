@@ -33,6 +33,7 @@ const ga = SITE.ga4Id;
     <link rel="canonical" href={canonical} />
     {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
     {SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
+    {SITE.pinterestSiteVerification && <meta name="p:domain_verify" content={SITE.pinterestSiteVerification} />}
     <meta name="theme-color" content="#fbf8f3" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
