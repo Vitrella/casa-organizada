@@ -17,7 +17,7 @@ export const SITE = {
   ga4Id: '',
 
   // Google Search Console verification token (only the content="..." value). Empty = no tag.
-  googleSiteVerification: '',
+  googleSiteVerification: 'mw7IutfrHgHp2qvLainK01e6h6_uCPPbxqHbMaz2ffo',
 
   // Amazon Associates tracking ID, e.g. 'casaorganizada-20'.
   // Leave empty until the account is approved: links go to plain amazon.com/dp/ASIN.
